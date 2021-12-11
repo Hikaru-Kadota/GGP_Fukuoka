@@ -5,7 +5,6 @@ $pdo = connect_to_db();
 
 if ($_POST['password'] != NULL) {
   $password = $_POST['password'];
-
   $sql = 'SELECT * FROM admin_table WHERE password = :password';
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':password', $password, PDO::PARAM_STR);
