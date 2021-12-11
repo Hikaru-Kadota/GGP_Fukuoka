@@ -1,0 +1,64 @@
+main {
+  text-align: center;
+  padding-top: 5vw;
+  .main_title {
+    h1 {
+      font-size: 6vw;
+    }
+  }
+  .grandprix {
+    padding: 4vw 0;
+    .grandprix_name {
+      padding: 2vw 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      img {
+        width:10vw;
+        margin-right: 3vw;
+      }
+      h1 {
+        line-height: 1em;
+        font-size: 8vw;
+        margin-right: 3vw;
+      }
+      h2 {
+        line-height: 1em;
+        font-size: 4vw;
+      }
+    }
+  }
+  .grandprix_point {
+    width: 100%;
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      border-spacing: 0;
+      .index {
+        background-color: #00A7EA;
+        color: white;
+      }
+      td {
+        border: solid 1px;
+        padding: 0.5vw 5vw;
+      }
+      p {
+        font-size: 4vw;
+      }
+    }
+  }
+  .title_wrapper {
+    width: 100%;
+    text-align: right;
+  a {
+    display: inline-block;
+    background-color: #00A7EA;
+    color: #fff;
+    margin-top: 1vh;
+    font-size: 1vw;
+    padding: 0.7vw 2vw;
+    border: solid 1px;
+    border-radius: 4px;
+  }
+}
+}

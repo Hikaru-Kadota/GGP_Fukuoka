@@ -1,0 +1,284 @@
+main {
+  padding-top: 3vw;
+  .main_title {
+    h1 {
+      font-size: 3vw;
+    }
+    h2 {
+      font-size: 1.1vw;
+      margin-left: 1vw;
+      margin-top: 1vw;
+    }
+    padding-bottom: 3vw;
+  }
+  .select_wrapper {
+    width: 100%;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .select_container {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      .tab_item:hover {
+        opacity: 0.75;
+      }
+      .tab_item_1 {
+        width: 100%;
+        text-align: center;
+        background-color: #00A7EA;
+        color: #fff;
+        font-size: 1.5vw;
+        padding: 0.7vw 2vw;
+      }
+      .tab_item_2, .tab_item_3 {
+        width: 100%;
+        text-align: center;
+        background-color: #d9d9d9;
+        color: #565656;
+        font-size: 1.5vw;
+        padding: 0.7vw 2vw;
+      }
+    }
+    .title_wrapper {
+      a {
+        display: inline-block;
+        background-color: #00A7EA;
+        color: #fff;
+        font-size: 1vw;
+        padding: 0.7vw 2vw;
+        border: solid 1px;
+        border-radius: 4px;
+      }
+    }
+  }
+  .total_rank {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    .border {
+      background-color: rgb(226, 226, 226);
+      border-radius: 5px;
+    }
+    .color {
+      color: red;
+    }
+    .index {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 1vw 0;
+      p {
+        font-size: 1.5vw;
+      }
+      .content_index_1 {
+        width: 12%;
+      }
+      .content_index_2 {
+        width: 12%;
+      }
+      .content_index_3 {
+        width: 26%;
+      }
+      .content_index_4 {
+        width: 15%;
+      }
+      .content_index_5 {
+        width: 25%;
+      }
+      .content_index_6 {
+        width: 20%;
+      }
+    }
+  }
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 1vw 0;
+    p {
+      font-size: 1.9vw;
+    }
+    .row_1 {
+      width: 12%;
+    }
+    .row_2 {
+      width: 12%;
+    }
+    .row_3 {
+      width: 26%;
+    }
+    .row_4 {
+      width: 15%;
+    }
+    .row_5 {
+      width: 25%;
+    }
+    .row_6 {
+      width: 20%;
+    }
+  }
+  .season_rank {
+    display: none;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    .index {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3vw;
+      .content_0 {
+        width: 10%;
+        padding: 0.5vw 0;
+      }
+      .content_1 {
+        width: 20%;
+        padding: 0.5vw 0;
+      }
+      .content_2 {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        .mini_content {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 0.5vw 0;
+          .mini_content_1 {
+            width: 20%;
+          }
+          .mini_content_2 {
+            width: 20%;
+          }
+          .mini_content_3 {
+            width: 35%;
+          }
+          .mini_content_4 {
+            width: 25%;
+          }
+        }
+      }
+    }
+    .contents {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      font-size: 1.5vw;
+      padding: 1vw 0;
+      border-bottom: dashed 2px  rgb(209, 209, 209);
+
+      .content_0 {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px;
+        font-size: 1.2vw;
+        a {
+          display: inline-block;
+          background-color: #00A7EA;
+          color: #fff;
+          font-size: 1vw;
+          padding: 0.7vw 1vw;
+          border: solid 1px;
+          border-radius: 4px;
+        }
+      }
+
+      .content_1 {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: solid 1px;
+        border-right: solid 1px;
+        border-bottom: solid 1px;
+      }
+
+      .content_2 {
+        width: 70%;
+        border-top: solid 1px;
+        border-right: solid 1px;
+        .mini_content {
+          display: flex;
+          justify-content: center;
+          border-bottom: solid 1px;
+          padding: 0.5vw 0;
+          .mini_content_1 {
+            width: 20%;
+            border-right: solid 1px;
+          }
+          .mini_content_2 {
+            width: 20%;
+            border-right: solid 1px;
+          }
+          .mini_content_3 {
+            width: 35%;
+            border-right: solid 1px;
+          }
+          .mini_content_4 {
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+  .today_rank {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    .border {
+      background-color: rgb(226, 226, 226);
+      border-radius: 5px;
+    }
+    .index {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 2vw 0;
+      p {
+        font-size: 2vw;
+      }
+      .no_event {
+        width: 100%;
+        text-align: center;
+      }
+      .content_index_1 {
+        width: 30%;
+      }
+      .content_index_2 {
+        width: 30%;
+      }
+      .content_index_3 {
+        width: 60%;
+      }
+    }
+    .row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-radius: 3px;
+      padding: 0.5vw 0;
+      margin: 2vw 0;
+      p {
+        font-size: 3vw;
+      }
+      .row_1 {
+        width: 30%;
+      }
+      .row_2 {
+        width: 30%;
+      }
+      .row_3 {
+        width: 60%;
+      }
+    }
+  }
+}

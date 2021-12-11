@@ -1,0 +1,74 @@
+main {
+  padding-top: 1vw;
+  div {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    p {
+      font-size: 2vw;
+      margin-right: 2vw;
+      padding: 3px 0;
+    }
+  }
+}
+
+.message {
+  padding: 3vw 0;
+  h3 {
+    margin: 3vw 0;
+    font-size: 3vw;
+  }
+  h4 {
+    font-size: 1.5vw;
+  }
+}
+.input_container {
+  padding: 2vw 0;
+  div {
+    width: 100%;
+    margin: 3vw 0;
+  }
+  .season_select {
+    display: flex;
+    justify-content: center;
+    select {
+      font-size: 1.5vw;
+      padding: 3px 7px;
+      border: solid 1px;
+      text-align: center;
+    }
+  }
+
+  .name_input {
+    display: flex;
+    justify-content: center;
+    input {
+      font-size: 1.7vw;
+      padding: 5px 7px;
+      border: solid 1px;
+    }
+  }
+
+}
+
+.button_container {
+  input {
+    background-color: #00A7EA;
+    color: #fff;
+    font-size: 1.5vw;
+    padding: 0.7vw 3vw;
+    border: solid 1px;
+    border-radius: 4px;
+    margin: 1.5vw 0;
+  }
+}
+
+.logo {
+  margin: 1vw 0;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  img {
+    width: 3vw;
+  }
+}

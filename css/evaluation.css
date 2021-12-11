@@ -1,0 +1,194 @@
+.main_2 {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 2vw;
+}
+
+.main_2 .main_title h3 {
+  font-size: 2vw;
+}
+
+.main_2 .main_title h4 {
+  font-size: 1.1vw;
+  margin-left: 1vw;
+  margin-top: 1vw;
+}
+
+.main_2 .categories .category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.2vw 0;
+}
+
+.main_2 .categories .category p {
+  font-size: 1vw;
+  margin-right: 1vw;
+}
+
+.main_2 .evaluation_table {
+  width: 100%;
+  text-align: center;
+  margin: 3vw auto;
+}
+
+.main_2 .evaluation_table .border {
+  background-color: #e2e2e2;
+  border-radius: 5px;
+}
+
+.main_2 .evaluation_table .color {
+  color: red;
+}
+
+.main_2 .evaluation_table .index {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1vw 0;
+}
+
+.main_2 .evaluation_table .index p {
+  font-size: 1vw;
+}
+
+.main_2 .evaluation_table .index .content_index_1 {
+  width: 5%;
+}
+
+.main_2 .evaluation_table .index .content_index_2 {
+  width: 10%;
+}
+
+.main_2 .evaluation_table .index .content_index_2_a {
+  width: 10%;
+}
+
+.main_2 .evaluation_table .index .content_index_3 {
+  width: 5%;
+}
+
+.main_2 .evaluation_table .index .content_index_4 {
+  width: 5%;
+}
+
+.main_2 .evaluation_table .index .content_index_5 {
+  width: 5%;
+}
+
+.main_2 .evaluation_table .index .content_index_6 {
+  width: 5%;
+}
+
+.main_2 .evaluation_table .index .content_index_7 {
+  width: 5%;
+}
+
+.main_2 .evaluation_table .index .content_index_8 {
+  width: 10%;
+}
+
+.main_2 .evaluation_table .index .content_index_9 {
+  width: 40%;
+}
+
+.main_2 .row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.6vw 0;
+  border-bottom: 1px solid rgba(152, 152, 152, 0.5);
+}
+
+.main_2 .row p {
+  font-size: 1.1vw;
+}
+
+.main_2 .row .row_1 {
+  width: 5%;
+}
+
+.main_2 .row .row_2 {
+  width: 10%;
+}
+
+.main_2 .row .row_2_a {
+  width: 10%;
+}
+
+.main_2 .row .row_3 {
+  width: 5%;
+}
+
+.main_2 .row .row_4 {
+  width: 5%;
+}
+
+.main_2 .row .row_5 {
+  width: 5%;
+}
+
+.main_2 .row .row_6 {
+  width: 5%;
+}
+
+.main_2 .row .row_7 {
+  width: 5%;
+}
+
+.main_2 .row .row_8 {
+  width: 10%;
+}
+
+.main_2 .row .row_9 {
+  width: 40%;
+  text-align: left;
+}
+
+.main_2 .title_wrapper {
+  width: 100%;
+  text-align: right;
+}
+
+.main_2 .title_wrapper a {
+  display: inline-block;
+  background-color: #00A7EA;
+  color: #fff;
+  font-size: 1vw;
+  padding: 0.7vw 2vw;
+  border: solid 1px;
+  border-radius: 4px;
+}
+
+.main_2 #js-pagetop {
+  position: fixed;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 8px;
+  background: #00A7EA;
+  color: #fff;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.main_2 #js-pagetop span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+}
+/*# sourceMappingURL=evaluation.css.map */

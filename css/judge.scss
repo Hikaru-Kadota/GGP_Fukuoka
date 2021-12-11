@@ -1,0 +1,114 @@
+main {
+  padding-top: 3vw;
+  .presenter_name {
+    margin-bottom: 4vw;
+    span {
+      padding: 3vw;
+    }
+    h3 {
+      font-size: 3vw;
+    }
+  }
+  .judge_table {
+    width: 100%;
+    margin: 4vw auto;
+    .border {
+      background-color: rgb(226, 226, 226);
+      border-radius: 5px;
+    }
+    .cols {
+      margin-bottom: 2vw;
+      width: 100%;
+      display: flex;
+      .content_index {
+        width: 40%;
+        display: flex;
+        justify-content: right;
+        align-items: flex-end;
+        padding-right: 2vw;
+        h3 {
+          font-size: 1.5vw;
+        }
+        h4 {
+          font-size: 0.5vw;
+        }
+      }
+      .content {
+        width: 12%;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+        h3 {
+          font-size: 2.3vw;
+          width: 50%;
+          text-align: right;
+        }
+        h4 {
+          font-size: 1.3vw;
+          width: 50%;
+        }
+      }
+    }
+
+    .rows {
+      padding: 10px 0;
+      width: 100%;
+      display: flex;
+      .content_index {
+        width: 40%;
+        display: flex;
+        justify-content: right;
+        align-items: flex-end;
+        padding-right: 2vw;
+        p {
+          font-size: 1.5vw;
+        }
+      }
+      .content {
+        width: 12%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        input {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .comment {
+    p{
+      font-size: 1.5vw;
+    }
+    textarea {
+      padding: 5px;
+      font-size: 1.3vw;
+      margin: 5px;
+      border: solid 1px;
+      border-radius: 3px;
+      width: 100%;
+    }
+    #inputlength {
+      text-align: right;
+      opacity: 0.5;
+    }
+  }
+
+  .button_container {
+    width: 100%;
+    text-align: right;
+    .skip{
+      background-color: #a7a7a7;
+    }
+    input {
+      display: inline-block;
+      background-color: #00A7EA;
+      color: #fff;
+      margin: 5vh 0.5vw;
+      font-size: 1.5vw;
+      padding: 0.7vw 5vw;
+      border: solid 1px;
+      border-radius: 4px;
+    }
+  }
+}

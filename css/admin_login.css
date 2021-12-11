@@ -1,0 +1,74 @@
+main {
+  padding-top: 8vw;
+}
+
+.sub_title {
+  width: 100%;
+  text-align: center;
+}
+
+.sub_title h2 {
+  font-size: 4vw;
+}
+
+.menu_contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  margin: 5vw 0;
+}
+
+.menu_contents .pass_input {
+  font-size: 1.7vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu_contents .pass_input input {
+  margin: 0 2vw;
+  font-size: 1.7vw;
+  padding: 5px 7px;
+  border: solid 1px;
+  border-radius: 2px;
+}
+
+.button_container {
+  padding: 3vw 0;
+}
+
+.button_container input {
+  background-color: #00A7EA;
+  color: #fff;
+  font-size: 1.5vw;
+  padding: 0.7vw 3vw;
+  border: solid 1px;
+  border-radius: 4px;
+  margin: 1.5vw 0;
+}
+
+.logo {
+  margin: 1vw 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.logo img {
+  width: 3vw;
+}
+/*# sourceMappingURL=admin_login.css.map */

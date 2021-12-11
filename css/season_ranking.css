@@ -1,0 +1,92 @@
+main {
+  padding-top: 3vw;
+}
+
+main .main_title h3 {
+  font-size: 2vw;
+  padding: 0.5vw 0;
+}
+
+main .ranking_table {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+main .ranking_table .border {
+  background-color: #e2e2e2;
+  border-radius: 5px;
+}
+
+main .ranking_table .index {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2vw 0;
+}
+
+main .ranking_table .index p {
+  font-size: 2vw;
+}
+
+main .ranking_table .index .content_index_1 {
+  width: 30%;
+}
+
+main .ranking_table .index .content_index_2 {
+  width: 30%;
+}
+
+main .ranking_table .index .content_index_3 {
+  width: 60%;
+}
+
+main .row {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 3px;
+  padding: 0.5vw 0;
+  margin: 2vw 0;
+}
+
+main .row p {
+  font-size: 3vw;
+}
+
+main .row .row_1 {
+  width: 30%;
+}
+
+main .row .row_2 {
+  width: 30%;
+}
+
+main .row .row_3 {
+  width: 60%;
+}
+
+main .title_wrapper {
+  width: 100%;
+  text-align: right;
+}
+
+main .title_wrapper a {
+  display: inline-block;
+  background-color: #00A7EA;
+  color: #fff;
+  margin-top: 3vh;
+  font-size: 1vw;
+  padding: 0.7vw 2vw;
+  border: solid 1px;
+  border-radius: 4px;
+}
+/*# sourceMappingURL=season_ranking.css.map */

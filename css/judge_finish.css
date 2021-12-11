@@ -1,0 +1,30 @@
+main {
+  padding-top: 8vw;
+}
+
+.title_wrapper {
+  padding-top: 10vw;
+  text-align: center;
+}
+
+.title_wrapper h3 {
+  font-size: 3.5vw;
+  padding-bottom: 5vw;
+}
+
+.title_wrapper h4 {
+  font-size: 2.5vw;
+  padding-bottom: 5vw;
+}
+
+.title_wrapper a {
+  display: inline-block;
+  background-color: #00A7EA;
+  color: #fff;
+  margin-top: 5vh;
+  font-size: 2vw;
+  padding: 0.7vw 7vw;
+  border: solid 1px;
+  border-radius: 4px;
+}
+/*# sourceMappingURL=judge_finish.css.map */

@@ -1,0 +1,80 @@
+@charset "UTF-8";
+main {
+  padding-top: 4vw;
+}
+
+main div {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main div p {
+  font-size: 2vw;
+  padding: 3px 0;
+}
+
+.message {
+  padding: １vw 0;
+}
+
+.message h3 {
+  margin: 3vw 0;
+  font-size: 3vw;
+}
+
+.message h4 {
+  font-size: 1.5vw;
+}
+
+.input_container {
+  padding: 2vw 0;
+}
+
+.input_container div {
+  width: 100%;
+  margin: 3vw 0;
+}
+
+.input_container .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5vw;
+}
+
+.input_container .input p {
+  width: 30%;
+}
+
+.input_container .input input {
+  font-size: 1.7vw;
+  padding: 5px 7px;
+  border: solid 1px;
+}
+
+.button_container input {
+  background-color: #00A7EA;
+  color: #fff;
+  font-size: 1.5vw;
+  padding: 0.7vw 3vw;
+  border: solid 1px;
+  border-radius: 4px;
+  margin: 1.5vw 0;
+}
+
+.logo {
+  margin: 1vw 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+.logo img {
+  width: 3vw;
+}
+/*# sourceMappingURL=season_build.css.map */

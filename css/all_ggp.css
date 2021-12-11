@@ -1,0 +1,185 @@
+main {
+  text-align: center;
+  padding-top: 3vw;
+}
+
+main .main_title h1 {
+  font-size: 4vw;
+}
+
+main .season_list {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+main .season_list .index {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.3vw;
+}
+
+main .season_list .index .content_0 {
+  width: 10%;
+}
+
+main .season_list .index .content_1 {
+  width: 10%;
+}
+
+main .season_list .index .content_2 {
+  width: 15%;
+}
+
+main .season_list .index .content_3 {
+  width: 20%;
+}
+
+main .season_list .index .content_4 {
+  width: 45%;
+}
+
+main .season_list .contents {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.5vw;
+  padding: 1vw 0;
+  border-bottom: dashed 2px #d1d1d1;
+}
+
+main .season_list .contents .content_0 {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 1px;
+  font-size: 1.2vw;
+}
+
+main .season_list .contents .content_0 a {
+  display: inline-block;
+  background-color: #00A7EA;
+  color: #fff;
+  font-size: 1vw;
+  padding: 0.7vw 1vw;
+  border: solid 1px;
+  border-radius: 4px;
+}
+
+main .season_list .contents .content_1 {
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: solid 1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+}
+
+main .season_list .contents .content_2 {
+  width: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: solid 1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+}
+
+main .season_list .contents .content_3 {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: solid 1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
+}
+
+main .season_list .contents .content_4 {
+  width: 45%;
+  border-top: solid 1px;
+  border-right: solid 1px;
+}
+
+main .season_list .contents .content_4 .mini_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: solid 1px;
+  padding: 0.5vw 0;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_1 {
+  width: 10%;
+  border-right: solid 1px;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_2 {
+  width: 40%;
+  border-right: solid 1px;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_3 {
+  width: 50%;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_NULL {
+  color: red;
+  opacity: 0.3;
+}
+
+main .title_wrapper {
+  width: 100%;
+  text-align: right;
+  padding-bottom: 2vw;
+}
+
+main .title_wrapper a {
+  display: inline-block;
+  background-color: #00A7EA;
+  color: #fff;
+  margin-top: 1vh;
+  font-size: 1vw;
+  padding: 0.7vw 2vw;
+  border: solid 1px;
+  border-radius: 4px;
+}
+/*# sourceMappingURL=all_ggp.css.map */

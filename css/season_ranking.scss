@@ -1,0 +1,71 @@
+main {
+  padding-top: 3vw;
+  .main_title {
+    h3 {
+      font-size: 2vw;
+      padding: 0.5vw 0;
+    }
+  }
+
+  .ranking_table {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    .border {
+      background-color: rgb(226, 226, 226);
+      border-radius: 5px;
+    }
+    .index {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 2vw 0;
+      p {
+        font-size: 2vw;
+      }
+      .content_index_1 {
+        width: 30%;
+      }
+      .content_index_2 {
+        width: 30%;
+      }
+      .content_index_3 {
+        width: 60%;
+      }
+    }
+  }
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 0.5vw 0;
+    margin: 2vw 0;
+    p {
+      font-size: 3vw;
+    }
+    .row_1 {
+      width: 30%;
+    }
+    .row_2 {
+      width: 30%;
+    }
+    .row_3 {
+      width: 60%;
+    }
+  }
+  .title_wrapper {
+    width: 100%;
+    text-align: right;
+  a {
+    display: inline-block;
+    background-color: #00A7EA;
+    color: #fff;
+    margin-top: 3vh;
+    font-size: 1vw;
+    padding: 0.7vw 2vw;
+    border: solid 1px;
+    border-radius: 4px;
+  }
+}
+}
