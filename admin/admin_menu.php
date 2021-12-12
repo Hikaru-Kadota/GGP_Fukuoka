@@ -59,7 +59,8 @@ if ($_POST['password'] != NULL) {
       <div>
         <a class="content_button" href="../all_ggp.php">GGP一覧</a>
         <a class="content_button" href="../ranking.php">歴代順位を見る</a>
-        <a class="content_button" href="../evaluation.php">評価・コメント</a> <a class="content_button" href="">分析する</a>
+        <a class="content_button" href="../evaluation.php">評価・コメント</a>
+        <!-- <a class="content_button" href="">分析する</a> -->
       </div>
     </div>
 

@@ -32,11 +32,11 @@ session_destroy();
         <a class="content_button" href="judge/judge_form.php">審査に参加</a>
       </div>
       <div>
-        <a class="content_button" href="entry/entry_form.php">登壇予約</a>
-        <a class="content_button" href="all_ggp.php">GGP一覧</a>
+        <!-- <a class="content_button" href="entry/entry_form.php">登壇予約</a> -->
+        <a class="content_button" href="all_ggp.php">登壇予約・GGP一覧</a>
         <a class="content_button" href="ranking.php">歴代順位を見る</a>
         <a class="content_button" href="evaluation.php">評価・コメント</a>
-        <input type="submit" value="分析する" onClick="return error();">
+        <!-- <input type="submit" value="分析する" onClick="return error();"> -->
       </div>
     </div>
 
