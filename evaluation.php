@@ -53,6 +53,8 @@ if ($_SESSION['password'] == NULL) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/evaluation.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>評価・コメント</title>
 </head>
 
@@ -112,8 +114,7 @@ if ($_SESSION['password'] == NULL) {
     </div>
   </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <script>
     $('#season_search').change('keyup', function(e) {
       const season_id = e.target.value;
