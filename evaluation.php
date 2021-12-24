@@ -3,103 +3,38 @@ session_start();
 include("functions.php");
 $pdo = connect_to_db();
 
+$sql = 'SELECT season_id FROM result_table;';
+$stmt = $pdo->prepare($sql);
+$status = $stmt->execute();
+$finished_season = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+$finished_season_id = [];
+for ($i = 0; $i < count($finished_season); $i++) {
+  array_push($finished_season_id, $finished_season[$i]['season_id']);
+}
+$finished_season_id = array_unique($finished_season_id);
+
+$sql = 'SELECT * FROM season_table ORDER BY season_date ASC;';
+$stmt = $pdo->prepare($sql);
+$status = $stmt->execute();
+$seasons = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+$finished_season_detail = [];
+for ($i = 0; $i < count($seasons); $i++) {
+  if (in_array($seasons[$i]['season_id'], $finished_season_id)) {
+    array_push($finished_season_detail, $seasons[$i]);
+  }
+}
+
+$season_output = "<option value='-'>選択してください</option>";
+for ($i = 0; $i < count($finished_season_detail); $i++) {
+  $season_output .= "<option value='{$finished_season_detail[$i]['season_id']}'>{$finished_season_detail[$i]['season_name']} ({$finished_season_detail[$i]['season_date']})</option>";
+}
+
 $sql = 'SELECT * FROM item_table';
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 $item = $stmt->fetchALL(PDO::FETCH_ASSOC);
-
-$sql = 'SELECT * FROM judgement_table ORDER BY season_id ASC, presenter_id ASC';
-$stmt = $pdo->prepare($sql);
-$status = $stmt->execute();
-$evaluation = $stmt->fetchALL(PDO::FETCH_ASSOC);
-
-$output .= "";
-for ($i = 0; $i < count($evaluation); $i++) {
-  $season_id = $evaluation[$i]['season_id'];
-  $sql = 'SELECT * FROM season_table WHERE season_id = :season_id ORDER BY season_id ASC';
-  $stmt = $pdo->prepare($sql);
-  $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);
-  $status = $stmt->execute();
-  $season = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  $sql = 'SELECT * FROM presenter_table WHERE season_id = :season_id AND presenter_id = :presenter_id';
-  $stmt = $pdo->prepare($sql);
-  $stmt->bindValue(':season_id', $season['season_id'], PDO::PARAM_INT);
-  $stmt->bindValue(':presenter_id', $evaluation[$i]['presenter_id'], PDO::PARAM_INT);
-  $status = $stmt->execute();
-  $presenter = $stmt->fetch(PDO::FETCH_ASSOC);
-
-  $evaluation_point = ($evaluation[$i]['item_1'] + $evaluation[$i]['item_2'] + $evaluation[$i]['item_3'] + $evaluation[$i]['item_4'] + $evaluation[$i]['item_5']) / 5;
-  $evaluation_point = sprintf("%.3f", $evaluation_point);
-
-  if ($i % 2 == 0) {
-    $output .= "<div class='row border'>
-        <div class='row_1'>
-          <p>{$season['season_name']}</p>
-        </div>
-        <div class='row_2'>
-          <p>{$season['season_theme']}</p>
-        </div>
-        <div class='row_2_a'>
-          <p>{$presenter['presenter_name']}</p>
-        </div>
-        <div class='row_3'>
-          <p>{$evaluation[$i]['item_1']}</p>
-        </div>
-        <div class='row_4'>
-          <p>{$evaluation[$i]['item_2']}</p>
-        </div>
-        <div class='row_5'>
-          <p>{$evaluation[$i]['item_3']}</p>
-        </div>
-        <div class='row_6'>
-          <p>{$evaluation[$i]['item_4']}</p>
-        </div>
-        <div class='row_7'>
-          <p>{$evaluation[$i]['item_5']}</p>
-        </div>
-        <div class='row_8'>
-          <p>{$evaluation_point}</p>
-        </div>
-        <div class='row_9'>
-          <p>{$evaluation[$i]['comment']}</p>
-        </div>
-      </div>";
-  } else {
-    $output .= "<div class='row'>
-        <div class='row_1'>
-          <p>{$season['season_name']}</p>
-        </div>
-        <div class='row_2'>
-          <p>{$season['season_theme']}</p>
-        </div>
-        <div class='row_2_a'>
-          <p>{$presenter['presenter_name']}</p>
-        </div>
-        <div class='row_3'>
-          <p>{$evaluation[$i]['item_1']}</p>
-        </div>
-        <div class='row_4'>
-          <p>{$evaluation[$i]['item_2']}</p>
-        </div>
-        <div class='row_5'>
-          <p>{$evaluation[$i]['item_3']}</p>
-        </div>
-        <div class='row_6'>
-          <p>{$evaluation[$i]['item_4']}</p>
-        </div>
-        <div class='row_7'>
-          <p>{$evaluation[$i]['item_5']}</p>
-        </div>
-        <div class='row_8'>
-          <p>{$evaluation_point}</p>
-        </div>
-        <div class='row_9'>
-          <p>{$evaluation[$i]['comment']}</p>
-        </div>
-      </div>";
-  }
-}
 
 $button = "";
 if ($_SESSION['password'] == NULL) {
@@ -107,7 +42,6 @@ if ($_SESSION['password'] == NULL) {
 } else {
   $button .= "<a href='admin/admin_menu.php'>admin_MENU</a>";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -133,56 +67,36 @@ if ($_SESSION['password'] == NULL) {
     <div class="title_wrapper">
       <?= $button ?>
     </div>
-    <div class="categories">
-      <div class="category">
-        <p>項目１</p>
-        <p><?= $item[0]['item_name'] ?></p>
-      </div>
-      <div class="category">
-        <p>項目２</p>
-        <p><?= $item[1]['item_name'] ?></p>
-      </div>
-      <div class="category">
-        <p>項目３</p>
-        <p><?= $item[2]['item_name'] ?></p>
-      </div>
-      <div class="category">
-        <p>項目４</p>
-        <p><?= $item[3]['item_name'] ?></p>
-      </div>
-      <div class="category">
-        <p>項目５</p>
-        <p><?= $item[4]['item_name'] ?></p>
-      </div>
+
+    <div class="select_wrapper">
+      <h4>シーズンを選択</h4>
+      <select name="season_id" id="season_search">
+        <?= $season_output ?>
+      </select>
     </div>
 
+    <div id="presenter" class="select_wrapper">
+      <h4>登壇者を選択</h4>
+      <select name="presenter" id="presenter_search">
+      </select>
+    </div>
 
-
-    <div class="evaluation_table">
+    <div class="evaluation_table" id="index">
       <div class="index">
-        <div class="content_index content_index_1">
-          <p>シーズン</p>
-        </div>
-        <div class="content_index content_index_2">
-          <p>テーマ</p>
-        </div>
-        <div class="content_index content_index_2_a">
-          <p>登壇者</p>
-        </div>
         <div class="content_index content_index_3">
-          <p>項目１</p>
+          <p>声の大きさ<br>トーン</p>
         </div>
         <div class="content_index content_index_4">
-          <p>項目２</p>
+          <p>表情</p>
         </div>
         <div class="content_index content_index_5">
-          <p>項目３</p>
+          <p>情熱・熱量</p>
         </div>
         <div class="content_index content_index_6">
-          <p>項目４</p>
+          <p>スライド構成<br>デザイン</p>
         </div>
         <div class="content_index content_index_7">
-          <p>項目５</p>
+          <p>PC操作<br>立ち回り</p>
         </div>
         <div class="content_index content_index_8">
           <p>評価点</p>
@@ -192,33 +106,109 @@ if ($_SESSION['password'] == NULL) {
         </div>
       </div>
 
-      <?= $output ?>
-    </div>
+      <div id='evaluation'>
+      </div>
 
-    <div id="js-pagetop">
-      <span>Top</span>
     </div>
-
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
-    $(function() {
-      var pagetop = $('#js-pagetop');
-      pagetop.hide();
-      $(window).scroll(function() {
-        if ($(this).scrollTop() > 500) {
-          pagetop.fadeIn();
-        } else {
-          pagetop.fadeOut();
+    $('#season_search').change('keyup', function(e) {
+      const season_id = e.target.value;
+      if (season_id != "-") {
+        $('#presenter').css('display', 'flex');
+        $('#index').css('display', 'none');
+        $('#evaluation').css('display', 'none');
+      } else {
+        $('#presenter').css('display', 'none');
+        $('#index').css('display', 'none');
+        $('#evaluation').css('display', 'none');
+      }
+      const requestUrl = 'season_get.php';
+
+      axios.get(`${requestUrl}?season_id=${season_id}`).then(function(response) {
+        const presenter_arr = [`<option value='-'>選択して下さい</option>`];
+        for (let i = 0; i < response.data.length; ++i) {
+          presenter_arr.push(`<option value='${response.data[i]['presenter_id']}'>${response.data[i]['presenter_name']}</option>`)
         }
+        $('#presenter_search').html(presenter_arr);
       });
-      pagetop.click(function() {
-        $('body, html').animate({
-          scrollTop: 0
-        }, 500);
-        return false;
+
+      $('#presenter_search').change('keyup', function(e) {
+        const presenter_id = e.target.value;
+        if (presenter_id != "-") {
+          $('#index').css('display', 'block');
+          $('#evaluation').css('display', 'block');
+        } else {
+          $('#index').css('display', 'none');
+          $('#evaluation').css('display', 'none');
+        }
+        const requestUrl = 'presenter_get.php';
+
+        axios.get(`${requestUrl}?presenter_id=${presenter_id}`).then(function(response_2) {
+          const evaluation_arr = [];
+          for (let i = 0; i < response_2.data.length; ++i) {
+            let judge_point = (Number(response_2.data[i]['item_1']) + Number(response_2.data[i]['item_2']) + Number(response_2.data[i]['item_3']) + Number(response_2.data[i]['item_4']) + Number(response_2.data[i]['item_5'])) / 5;
+            if (i % 2 == 0) {
+              evaluation_arr.push(`<div id='evaluation'>
+                                  <div class='row border'>
+                                    <div class='row_3'>
+                                      <p>${response_2.data[i]['item_1']}</p>
+                                    </div>
+                                    <div class='row_4'>
+                                      <p>${response_2.data[i]['item_2']}</p>
+                                    </div>
+                                    <div class='row_5'>
+                                      <p>${response_2.data[i]['item_3']}</p>
+                                    </div>
+                                    <div class='row_6'>
+                                      <p>${response_2.data[i]['item_4']}</p>
+                                    </div>
+                                    <div class='row_7'>
+                                      <p>${response_2.data[i]['item_5']}</p>
+                                    </div>
+                                    <div class='row_8'>
+                                      <p>${judge_point.toFixed(3)}</p>
+                                    </div>
+                                    <div class='row_9'>
+                                      <p>${response_2.data[i]['comment']}</p>
+                                    </div>
+                                  </div>
+                                </div>`);
+            } else {
+              evaluation_arr.push(`<div id='evaluation'>
+                                  <div class='row'>
+                                    <div class='row_3'>
+                                      <p>${response_2.data[i]['item_1']}</p>
+                                    </div>
+                                    <div class='row_4'>
+                                      <p>${response_2.data[i]['item_2']}</p>
+                                    </div>
+                                    <div class='row_5'>
+                                      <p>${response_2.data[i]['item_3']}</p>
+                                    </div>
+                                    <div class='row_6'>
+                                      <p>${response_2.data[i]['item_4']}</p>
+                                    </div>
+                                    <div class='row_7'>
+                                      <p>${response_2.data[i]['item_5']}</p>
+                                    </div>
+                                    <div class='row_8'>
+                                      <p>${judge_point.toFixed(3)}</p>
+                                    </div>
+                                    <div class='row_9'>
+                                      <p>${response_2.data[i]['comment']}</p>
+                                    </div>
+                                  </div>
+                                </div>`);
+            };
+          };
+          $('#evaluation').html(evaluation_arr);
+        });
       });
+
     });
   </script>
 </body>

@@ -28,33 +28,32 @@ $grandprix = $stmt->fetchALL(PDO::FETCH_ASSOC);
 if ($grandprix == NULL) {
   // (grandprix == NULL) = result_tableに結果がない ＝> 集計から実施する必要あり(今終わったGGP用)
 
-  //①審査員全員のIDを配列化 ex; ["255", "256", "257", "258", "259", "260" ...]
+  //①審査員全員のIDを配列化
   $sql = 'SELECT * FROM judge_table WHERE season_id = :season_id';
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);
   $status = $stmt->execute();
-  $judges = $stmt->fetchALL(PDO::FETCH_ASSOC);
-  $judges_id = [];
-  for ($i = 0; $i < count($judges); $i++) {
-    array_push($judges_id, $judges[$i]['judge_id']);
+  $all_judge = $stmt->fetchALL(PDO::FETCH_ASSOC);
+  $all_judge_id = [];
+  for ($i = 0; $i < count($all_judge); $i++) {
+    array_push($all_judge_id, $all_judge[$i]['judge_id']);
   }
 
-  //②対象外審査員のIDを配列化 ex; ["256", "258"]
-  $sql = 'SELECT * FROM relation_table WHERE season_id = :season_id AND judge_point = 0';
+  //②relation_table上に、審査が5件未満 or スキップした審査員を除外する(5件未満 = 途中で落ちてしまった場合など)
+  $sql = 'SELECT * FROM relation_table WHERE season_id = :season_id AND judge_point != 0';
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);
   $status = $stmt->execute();
-  $skipper = $stmt->fetchALL(PDO::FETCH_ASSOC);
-  $skipper_id = [];
-  for ($i = 0; $i < count($skipper); $i++) {
-    array_push($skipper_id, $skipper[$i]['judge_id']);
+  $relation_judges = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+  $judges_id = [];
+  for ($i = 0; $i < count($all_judge_id); $i++) {
+    if (array_count_values(array_column($relation_judges, 'judge_id'))[$all_judge_id[$i]] == '5') {
+      array_push($judges_id, $all_judge_id[$i]);
+    }
   }
 
-  //①-② 順位付けの対象となる審査員のみのIDを配列化 ex; ["255", "257", "259", "260" ...]
-  for ($i = 0; $i < count($skipper_id); $i++) {
-    $judges_id = array_diff($judges_id, array($skipper_id[$i]));
-    $judges_id = array_values($judges_id);
-  }
+
 
   $result_arr = [];
   for ($i = 0; $i < count($presenters); $i++) {
