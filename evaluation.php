@@ -83,6 +83,12 @@ if ($_SESSION['password'] == NULL) {
       </select>
     </div>
 
+    <div class="season_theme" id="season_detail">
+      <h4>テーマ</h4>
+      <div id="season_name">
+      </div>
+    </div>
+
     <div class="evaluation_table" id="index">
       <div class="index">
         <div class="content_index content_index_3">
@@ -122,20 +128,29 @@ if ($_SESSION['password'] == NULL) {
         $('#presenter').css('display', 'flex');
         $('#index').css('display', 'none');
         $('#evaluation').css('display', 'none');
+        $('#season_detail').css('display', 'flex');
       } else {
         $('#presenter').css('display', 'none');
         $('#index').css('display', 'none');
         $('#evaluation').css('display', 'none');
+        $('#season_detail').css('display', 'none');
       }
-      const requestUrl = 'season_get.php';
 
-      axios.get(`${requestUrl}?season_id=${season_id}`).then(function(response) {
+      const requestUrl_1 = 'season_get.php';
+      axios.get(`${requestUrl_1}?season_id=${season_id}`).then(function(response) {
         const presenter_arr = [`<option value='-'>選択して下さい</option>`];
         for (let i = 0; i < response.data.length; ++i) {
           presenter_arr.push(`<option value='${response.data[i]['presenter_id']}'>${response.data[i]['presenter_name']}</option>`)
         }
         $('#presenter_search').html(presenter_arr);
       });
+
+      const requestUrl_2 = 'season_detail_get.php';
+      axios.get(`${requestUrl_2}?season_id=${season_id}`).then(function(response_2) {
+        const season_theme = [`『 ${response_2.data['season_theme']} 』`];
+        $('#season_name').html(season_theme);
+      });
+
 
       $('#presenter_search').change('keyup', function(e) {
         const presenter_id = e.target.value;
@@ -146,35 +161,35 @@ if ($_SESSION['password'] == NULL) {
           $('#index').css('display', 'none');
           $('#evaluation').css('display', 'none');
         }
-        const requestUrl = 'presenter_get.php';
 
-        axios.get(`${requestUrl}?presenter_id=${presenter_id}`).then(function(response_2) {
+        const requestUrl_3 = 'presenter_get.php';
+        axios.get(`${requestUrl_3}?presenter_id=${presenter_id}`).then(function(response_3) {
           const evaluation_arr = [];
-          for (let i = 0; i < response_2.data.length; ++i) {
-            let judge_point = (Number(response_2.data[i]['item_1']) + Number(response_2.data[i]['item_2']) + Number(response_2.data[i]['item_3']) + Number(response_2.data[i]['item_4']) + Number(response_2.data[i]['item_5'])) / 5;
+          for (let i = 0; i < response_3.data.length; ++i) {
+            let judge_point = (Number(response_3.data[i]['item_1']) + Number(response_3.data[i]['item_2']) + Number(response_3.data[i]['item_3']) + Number(response_3.data[i]['item_4']) + Number(response_3.data[i]['item_5'])) / 5;
             if (i % 2 == 0) {
               evaluation_arr.push(`<div id='evaluation'>
                                   <div class='row border'>
                                     <div class='row_3'>
-                                      <p>${response_2.data[i]['item_1']}</p>
+                                      <p>${response_3.data[i]['item_1']}</p>
                                     </div>
                                     <div class='row_4'>
-                                      <p>${response_2.data[i]['item_2']}</p>
+                                      <p>${response_3.data[i]['item_2']}</p>
                                     </div>
                                     <div class='row_5'>
-                                      <p>${response_2.data[i]['item_3']}</p>
+                                      <p>${response_3.data[i]['item_3']}</p>
                                     </div>
                                     <div class='row_6'>
-                                      <p>${response_2.data[i]['item_4']}</p>
+                                      <p>${response_3.data[i]['item_4']}</p>
                                     </div>
                                     <div class='row_7'>
-                                      <p>${response_2.data[i]['item_5']}</p>
+                                      <p>${response_3.data[i]['item_5']}</p>
                                     </div>
                                     <div class='row_8'>
                                       <p>${judge_point.toFixed(3)}</p>
                                     </div>
                                     <div class='row_9'>
-                                      <p>${response_2.data[i]['comment']}</p>
+                                      <p>${response_3.data[i]['comment']}</p>
                                     </div>
                                   </div>
                                 </div>`);
@@ -182,25 +197,25 @@ if ($_SESSION['password'] == NULL) {
               evaluation_arr.push(`<div id='evaluation'>
                                   <div class='row'>
                                     <div class='row_3'>
-                                      <p>${response_2.data[i]['item_1']}</p>
+                                      <p>${response_3.data[i]['item_1']}</p>
                                     </div>
                                     <div class='row_4'>
-                                      <p>${response_2.data[i]['item_2']}</p>
+                                      <p>${response_3.data[i]['item_2']}</p>
                                     </div>
                                     <div class='row_5'>
-                                      <p>${response_2.data[i]['item_3']}</p>
+                                      <p>${response_3.data[i]['item_3']}</p>
                                     </div>
                                     <div class='row_6'>
-                                      <p>${response_2.data[i]['item_4']}</p>
+                                      <p>${response_3.data[i]['item_4']}</p>
                                     </div>
                                     <div class='row_7'>
-                                      <p>${response_2.data[i]['item_5']}</p>
+                                      <p>${response_3.data[i]['item_5']}</p>
                                     </div>
                                     <div class='row_8'>
                                       <p>${judge_point.toFixed(3)}</p>
                                     </div>
                                     <div class='row_9'>
-                                      <p>${response_2.data[i]['comment']}</p>
+                                      <p>${response_3.data[i]['comment']}</p>
                                     </div>
                                   </div>
                                 </div>`);
