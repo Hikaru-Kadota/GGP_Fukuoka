@@ -40,7 +40,7 @@ if ($grandprix == NULL) {
     array_push($all_judge_id, $all_judge[$i]['judge_id']);
   }
 
-  var_dump("オール" . $all_judge_id);
+  var_dump($all_judge_id);
 
   //②relation_table上に、審査が5件未満 or スキップした審査員を除外する(5件未満 = 途中で落ちてしまった場合など)
   $sql = 'SELECT * FROM relation_table WHERE season_id = :season_id AND judge_point != 0';
@@ -49,7 +49,7 @@ if ($grandprix == NULL) {
   $status = $stmt->execute();
   $relation_judges = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-  var_dump("リレーション" . $relation_judges);
+  var_dump($relation_judges);
   exit();
 
 
