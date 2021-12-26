@@ -18,7 +18,6 @@ if ($presenters == NULL) {
   exit();
 }
 
-
 $sql = 'SELECT * FROM result_table WHERE season_id = :season_id AND ranking = :ranking';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);
@@ -40,8 +39,6 @@ if ($grandprix == NULL) {
     array_push($all_judge_id, $all_judge[$i]['judge_id']);
   }
 
-  var_dump($all_judge_id);
-
   //②relation_table上に、審査が5件未満 or スキップした審査員を除外する(5件未満 = 途中で落ちてしまった場合など)
   $sql = 'SELECT * FROM relation_table WHERE season_id = :season_id AND judge_point != 0';
   $stmt = $pdo->prepare($sql);
@@ -49,16 +46,8 @@ if ($grandprix == NULL) {
   $status = $stmt->execute();
   $relation_judges = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-  var_dump($relation_judges);
-  exit();
-
-
-  $judges_id = [];
-  for ($i = 0; $i < count($all_judge_id); $i++) {
-    if (array_count_values(array_column($relation_judges, 'judge_id'))[$all_judge_id[$i]] == '5') {
-      array_push($judges_id, $all_judge_id[$i]);
-    }
-  }
+  $arr = array_count_values(array_column($relation_judges, 'judge_id'));
+  $judges_id = array_keys($arr, count($presenters));
 
   $result_arr = [];
   for ($i = 0; $i < count($presenters); $i++) {
@@ -92,12 +81,13 @@ if ($grandprix == NULL) {
   }
   array_multisort($sort, SORT_ASC, $result_arr);
 
-  for ($i = 0; $i < count($result_arr); $i++) {
-    $presenter_id = $result_arr[$i]['presenter_id'];
-    $final_point = $result_arr[$i]['final_point'];
-    if ($final_point != $result_arr[$i - 1]['final_point']) {
-      $ranking = $i + 1;
+  for ($k = 0; $k < count($result_arr); $k++) {
+    $presenter_id = $result_arr[$k]['presenter_id'];
+    $final_point = $result_arr[$k]['final_point'];
+    if ($final_point != $result_arr[$k - 1]['final_point']) {
+      $ranking = $k + 1;
     }
+
     $sql = 'INSERT INTO result_table (result_id, season_id, presenter_id, ranking, final_point) VALUES (NULL, :season_id, :presenter_id, :ranking, :final_point)';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);

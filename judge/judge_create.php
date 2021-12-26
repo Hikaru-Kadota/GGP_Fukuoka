@@ -16,8 +16,6 @@ $item_4 = $_POST['item_4'];
 $item_5 = $_POST['item_5'];
 $comment = $_POST['comment'];
 
-
-
 if ($judge_point == "DONE") {
   $sql = 'INSERT INTO judgement_table (judgement_id, season_id, presenter_id, judge_id, item_1, item_2, item_3, item_4, item_5, comment) VALUES (NULL, :season_id, :presenter_id, :judge_id, :item_1, :item_2, :item_3, :item_4, :item_5, :comment)';
   $stmt = $pdo->prepare($sql);
