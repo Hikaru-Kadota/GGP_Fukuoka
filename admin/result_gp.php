@@ -53,7 +53,7 @@ if ($grandprix == NULL) {
       array_push($judges_id, $all_judge_id[$i]);
     }
   }
-  var_dump("ジャッジID" . $judges_id);
+  var_dump($judges_id);
   exit();
 
 
