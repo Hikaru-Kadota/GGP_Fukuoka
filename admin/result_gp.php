@@ -61,8 +61,8 @@ if ($grandprix == NULL) {
 
     $presenter_id = $presenters[$i]['presenter_id'];
     if ($presenter_id == NULL || $judges_id[0] == NULL || $season_id == NULL) {
-      var_dump($presenter_id);
-      var_dump($judges_id[0]);
+      var_dump("プレセンターID" . $presenter_id);
+      var_dump("ジャッジID" . $judges_id[0]);
       var_dump($season_id);
       exit();
       header("Location:result_announcement.php");
