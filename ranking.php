@@ -300,6 +300,7 @@ if ($_SESSION['password'] == NULL) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/ranking.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>総合ランキング</title>
 </head>
 
@@ -368,7 +369,7 @@ if ($_SESSION['password'] == NULL) {
 
   </main>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <script>
     $('#total_rank').on('click', function() {
       $('.total_rank').css('display', 'block');
