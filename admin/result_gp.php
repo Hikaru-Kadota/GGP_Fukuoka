@@ -18,6 +18,7 @@ if ($presenters == NULL) {
   exit();
 }
 
+
 $sql = 'SELECT * FROM result_table WHERE season_id = :season_id AND ranking = :ranking';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);
@@ -60,6 +61,10 @@ if ($grandprix == NULL) {
 
     $presenter_id = $presenters[$i]['presenter_id'];
     if ($presenter_id == NULL || $judges_id[0] == NULL || $season_id == NULL) {
+      var_dump($presenter_id);
+      var_dump($judges_id[0]);
+      var_dump($season_id);
+      exit();
       header("Location:result_announcement.php");
       exit();
     }
