@@ -147,7 +147,7 @@ $status = $stmt->execute();
 $result_counts = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
 $result_count = [];
-for ($b = 0; $b < count($result_counts); $db++) {
+for ($b = 0; $b < count($result_counts); $b++) {
   if (in_array($result_counts[$b]['season_id'], $result_count) == false) {
     array_push($result_count, $result_counts[$b]['season_id']);
   }
