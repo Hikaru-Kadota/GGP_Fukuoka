@@ -153,6 +153,8 @@ for ($i = 0; $i < count($seasons); $i++) {
   $stmt->bindValue(':season_id', $seasons[$i]['season_id'], PDO::PARAM_INT);
   $status = $stmt->execute();
   $season_result = $stmt->fetchALL(PDO::FETCH_ASSOC);
+  var_dump($season_result);
+  exit();
   if ($season_result != NULL) {
     $sql = 'SELECT * FROM season_table WHERE season_id = :season_id';
     $stmt = $pdo->prepare($sql);
@@ -161,9 +163,6 @@ for ($i = 0; $i < count($seasons); $i++) {
     $season = $stmt->fetch(PDO::FETCH_ASSOC);
     $season_name = $season['season_name'];
     $season_theme = $season['season_theme'];
-    var_dump($season_name);
-    var_dump($season_theme);
-    exit();
     $season_output .= "<div class='contents'>
                 <div class='content_0'>{$season_name}</div>
                 <div class='content_1'>{$season_theme}</div>
