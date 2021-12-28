@@ -148,13 +148,13 @@ $seasons = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
 $season_output = "";
 for ($i = 0; $i < count($seasons); $i++) {
+  var_dump($seasons[$i]);
+  exit();
   $sql = 'SELECT * FROM result_table WHERE season_id = :season_id ORDER BY ranking';
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':season_id', $seasons[$i]['season_id'], PDO::PARAM_INT);
   $status = $stmt->execute();
   $season_result = $stmt->fetchALL(PDO::FETCH_ASSOC);
-  var_dump($season_result);
-  exit();
   if ($season_result != NULL) {
     $sql = 'SELECT * FROM season_table WHERE season_id = :season_id';
     $stmt = $pdo->prepare($sql);
