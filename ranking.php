@@ -155,8 +155,6 @@ for ($b = 0; $b < count($result_counts); $b++) {
 
 $season_output = "";
 for ($i = 0; $i < count($result_count); $i++) {
-  var_dump($seasons[$i]);
-  exit();
   $sql = 'SELECT * FROM result_table WHERE season_id = :season_id ORDER BY ranking';
   $stmt = $pdo->prepare($sql);
   $stmt->bindValue(':season_id', $result_count[$i], PDO::PARAM_INT);
