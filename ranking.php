@@ -141,10 +141,12 @@ for ($i = 0; $i < count($total_ranking); $i++) {
 
 
 // シーズンランキング生成 -------------------------------------------------------------------------------------------
-$sql = 'SELECT * FROM season_table ORDER BY season_id DESC';
+$sql = 'SELECT * FROM result_table ORDER BY season_id DESC';
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 $seasons = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+
 
 $season_output = "";
 for ($i = 0; $i < count($seasons); $i++) {
