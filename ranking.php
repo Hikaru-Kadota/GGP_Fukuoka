@@ -146,9 +146,6 @@ $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 $seasons = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-var_dump($seasons);
-exit();
-
 $season_output = "";
 for ($i = 0; $i < count($seasons); $i++) {
   $sql = 'SELECT * FROM result_table WHERE season_id = :season_id ORDER BY ranking';
@@ -164,6 +161,9 @@ for ($i = 0; $i < count($seasons); $i++) {
     $season = $stmt->fetch(PDO::FETCH_ASSOC);
     $season_name = $season['season_name'];
     $season_theme = $season['season_theme'];
+    var_dump($season_name);
+    var_dump($season_theme);
+    exit();
     $season_output .= "<div class='contents'>
                 <div class='content_0'>{$season_name}</div>
                 <div class='content_1'>{$season_theme}</div>
