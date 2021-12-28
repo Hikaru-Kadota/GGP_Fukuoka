@@ -146,6 +146,9 @@ $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 $seasons = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
+var_dump($seasons);
+exit();
+
 $season_output = "";
 for ($i = 0; $i < count($seasons); $i++) {
   $sql = 'SELECT * FROM result_table WHERE season_id = :season_id ORDER BY ranking';
