@@ -144,7 +144,17 @@ for ($i = 0; $i < count($total_ranking); $i++) {
 $sql = 'SELECT * FROM result_table ORDER BY season_id DESC';
 $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
-$seasons = $stmt->fetchALL(PDO::FETCH_ASSOC);
+$result_counts = $stmt->fetchALL(PDO::FETCH_ASSOC);
+
+$result_count = [];
+for ($b = 0; $b < $result_counts; $b++) {
+  if (in_array($result_counts[$b]['season_id'], $result_count) == false) {
+    array_push($result_count, $result_counts[$b]['season_id']);
+  }
+}
+
+var_dump($result_count);
+exit();
 
 
 
