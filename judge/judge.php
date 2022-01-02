@@ -270,7 +270,7 @@ if ($presenter == false) {
     }
 
     function ShowLength(str) {
-      document.getElementById("inputlength").innerHTML = "残り " + (200 - str.length) + "文字";
+      document.getElementById("inputlength").innerHTML = "残り " + (256 - str.length) + "文字";
     }
   </script>
 </body>
