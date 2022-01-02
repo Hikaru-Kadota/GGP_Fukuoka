@@ -243,7 +243,7 @@ if ($presenter == false) {
 
       <div class="comment">
         <p>登壇者へコメント</p>
-        <textarea name="comment" id="" cols="100" rows="3" maxlength="260" placeholder="２００文字以内" onkeyup="ShowLength(value);"></textarea>
+        <textarea name="comment" id="" cols="100" rows="3" maxlength="500" placeholder="２００文字以内" onkeyup="ShowLength(value);"></textarea>
         <p id="inputlength"></p>
       </div>
 
@@ -270,7 +270,7 @@ if ($presenter == false) {
     }
 
     function ShowLength(str) {
-      document.getElementById("inputlength").innerHTML = "残り " + (260 - str.length) + "文字";
+      document.getElementById("inputlength").innerHTML = "残り " + (500 - str.length) + "文字";
     }
   </script>
 </body>
