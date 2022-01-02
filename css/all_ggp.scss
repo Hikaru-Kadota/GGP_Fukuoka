@@ -111,14 +111,30 @@ main {
             font-size: 1vw;
             color: blue;
             a {
+              width: 90%;
               padding: 2px 4px;
               border: solid 1px blue;
-              border-radius: 3px;
+              border-radius: 15px;
             }
           }
           .mini_content_NULL {
             color: red;
             opacity: 0.3;
+          }
+          .mini_content_FIN {
+            color: black;
+            opacity: 0.3;
+          }
+          .welcome {
+            color: rgb(255, 255, 255);
+            font-size: 1vw;
+            a {
+              width: 90%;
+              background-color: #00A7EA;
+              border: none;
+              border-radius: 15px;
+              padding: 3px 4px;
+            }
           }
         }
       }

@@ -29,20 +29,58 @@ for ($i = 0; $i < count($event); $i++) {
   $presenter = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
   if ($season_result) {
+    //終了
     $output .= "<div class='contents'>
                 <div class='content_0'>シーズン<br>終了</div>
                 <div class='content_1'>{$season_name}</div>
                 <div class='content_2'>{$season_date}</div>
                 <div class='content_3'>{$season_theme}</div>
                 <div class='content_4'>";
+    for ($j = 0; $j < 5; $j++) {
+      $number = $j + 1;
+      if ($presenter[$j] != NULL) {
+        $output .= "<div class='mini_content'>
+                  <div class='mini_content_1'>{$number}</div>
+                  <div class='mini_content_2'>{$presenter[$j]['class']}</div>
+                  <div class='mini_content_3'>{$presenter[$j]['presenter_name']}</div>
+                  <div class='mini_content_4'>- - -</div>
+                </div>";
+      } else {
+        $output .= "<div class='mini_content'>
+                  <div class='mini_content_1'>{$number}</div>
+                  <div class='mini_content_2 mini_content_FIN'>- - - - - - - -</div>
+                  <div class='mini_content_3 mini_content_FIN'>- - - - - - - -</div>
+                  <div class='mini_content_4 mini_content_FIN'>- - -</div>
+                </div>";
+      }
+    }
   } else {
+    //まだ
     if (count($presenter) < 5) {
       $output .= "<div class='contents'>
-                <div class='content_0'><a href='entry/entry_form.php?season_id={$season_id}&season_name={$season_name}&season_date={$season_date}'>ENTRY</a></div>
+                <div class='content_0'>受付中</div>
                 <div class='content_1'>{$season_name}</div>
                 <div class='content_2'>{$season_date}</div>
                 <div class='content_3'>{$season_theme}</div>
                 <div class='content_4'>";
+      for ($j = 0; $j < 5; $j++) {
+        $number = $j + 1;
+        if ($presenter[$j] != NULL) {
+          $output .= "<div class='mini_content'>
+                  <div class='mini_content_1'>{$number}</div>
+                  <div class='mini_content_2'>{$presenter[$j]['class']}</div>
+                  <div class='mini_content_3'>{$presenter[$j]['presenter_name']}</div>
+                  <div class='mini_content_4'><a href='entry/entry_cancel.php?presenter_id={$presenter[$j]['presenter_id']}' onClick='return check_delete();'>Cancel</a></div>
+                </div>";
+        } else {
+          $output .= "<div class='mini_content'>
+                  <div class='mini_content_1'>{$number}</div>
+                  <div class='mini_content_2 mini_content_NULL'>- - - - - - - -</div>
+                  <div class='mini_content_3 mini_content_NULL'>募集中</div>
+                  <div class='mini_content_4 welcome'><a href='entry/entry_form.php?season_id={$season_id}&season_name={$season_name}&season_date={$season_date}'>Entry</a></div>
+                </div>";
+        }
+      }
     } else {
       $output .= "<div class='contents'>
                 <div class='content_0'>受付終了</div>
@@ -50,28 +88,17 @@ for ($i = 0; $i < count($event); $i++) {
                 <div class='content_2'>{$season_date}</div>
                 <div class='content_3'>{$season_theme}</div>
                 <div class='content_4'>";
-    }
-  }
-
-
-
-
-  for ($j = 0; $j < 5; $j++) {
-    $number = $j + 1;
-    if ($presenter[$j] != NULL) {
-      $output .= "<div class='mini_content'>
+      for ($j = 0; $j < 5; $j++) {
+        $number = $j + 1;
+        if ($presenter[$j] != NULL) {
+          $output .= "<div class='mini_content'>
                   <div class='mini_content_1'>{$number}</div>
                   <div class='mini_content_2'>{$presenter[$j]['class']}</div>
                   <div class='mini_content_3'>{$presenter[$j]['presenter_name']}</div>
                   <div class='mini_content_4'><a href='entry/entry_cancel.php?presenter_id={$presenter[$j]['presenter_id']}' onClick='return check_delete();'>Cancel</a></div>
                 </div>";
-    } else {
-      $output .= "<div class='mini_content'>
-                  <div class='mini_content_1'>{$number}</div>
-                  <div class='mini_content_2 mini_content_NULL'>- - - - - - - -</div>
-                  <div class='mini_content_3 mini_content_NULL'>空席</div>
-                  <div class='mini_content_4'></div>
-                </div>";
+        }
+      }
     }
   }
   $output .= "</div></div>";

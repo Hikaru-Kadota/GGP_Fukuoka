@@ -178,14 +178,33 @@ main .season_list .contents .content_4 .mini_content .mini_content_4 {
 }
 
 main .season_list .contents .content_4 .mini_content .mini_content_4 a {
+  width: 90%;
   padding: 2px 4px;
   border: solid 1px blue;
-  border-radius: 3px;
+  border-radius: 15px;
 }
 
 main .season_list .contents .content_4 .mini_content .mini_content_NULL {
   color: red;
   opacity: 0.3;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_FIN {
+  color: black;
+  opacity: 0.3;
+}
+
+main .season_list .contents .content_4 .mini_content .welcome {
+  color: white;
+  font-size: 1vw;
+}
+
+main .season_list .contents .content_4 .mini_content .welcome a {
+  width: 90%;
+  background-color: #00A7EA;
+  border: none;
+  border-radius: 15px;
+  padding: 3px 4px;
 }
 
 main .title_wrapper {
