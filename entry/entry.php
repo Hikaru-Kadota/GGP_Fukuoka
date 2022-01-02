@@ -43,7 +43,7 @@ if (count($presenter_count) < 5) {
     <div class="title_wrapper">
       <h3>エントリーを受け付けました</h1>
         <h4>楽しみにお待ちしております</h4>
-        <a href="../menu.php">メニューへ</a>
+        <a href="../all_ggp.php">OK</a>
     </div>
 
   </main>

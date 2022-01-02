@@ -27,7 +27,7 @@ check_session_id();
       <h3>新規シーズンをビルド</h3>
     </div>
 
-    <form action="season_create.php" method="POST">
+    <form action="season_create.php" method="POST" name="season_build">
 
       <div class="input_container">
 
@@ -59,10 +59,10 @@ check_session_id();
 
   <script type="text/javascript">
     function check() {
-      if (entry.season_id.value == "-" ||
-        entry.entry_name.value == "" ||
-        entry.entry_name.value == " ") {
-        alert("お名前が未入力か、受付中のシーズンがありません");
+      if (season_build.season_name.value == "" ||
+        season_build.season_name.value == "" ||
+        season_build.season_date.value == "") {
+        alert("全項目必須です");
         return false;
       } else {
         return true;

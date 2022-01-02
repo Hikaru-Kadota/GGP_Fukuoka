@@ -43,7 +43,7 @@ $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 $items = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
-$sql = 'SELECT * FROM relation_table WHERE season_id = :season_id && judge_id = :judge_id ORDER BY presenter_id ASC';
+$sql = 'SELECT * FROM relation_table WHERE season_id = :season_id AND judge_id = :judge_id ORDER BY presenter_id ASC';
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':season_id', $season_id, PDO::PARAM_INT);
 $stmt->bindValue(':judge_id', $judge_id, PDO::PARAM_INT);
@@ -243,7 +243,7 @@ if ($presenter == false) {
 
       <div class="comment">
         <p>登壇者へコメント</p>
-        <textarea name="comment" id="" cols="100" rows="3" maxlength="500" placeholder="２００文字以内" onkeyup="ShowLength(value);"></textarea>
+        <textarea name="comment" id="" cols="100" rows="3" maxlength="500" placeholder="５００文字以内" onkeyup="ShowLength(value);"></textarea>
         <p id="inputlength"></p>
       </div>
 
@@ -266,6 +266,15 @@ if ($presenter == false) {
         return false;
       } else {
         return true;
+      }
+    }
+
+    function check_SKIP() {
+      var result = confirm('本当にスキップしますか？');
+      if (result) {
+        return true;
+      } else {
+        return false;
       }
     }
 

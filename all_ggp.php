@@ -63,12 +63,14 @@ for ($i = 0; $i < count($event); $i++) {
                   <div class='mini_content_1'>{$number}</div>
                   <div class='mini_content_2'>{$presenter[$j]['class']}</div>
                   <div class='mini_content_3'>{$presenter[$j]['presenter_name']}</div>
+                  <div class='mini_content_4'><a href='entry/entry_cancel.php?presenter_id={$presenter[$j]['presenter_id']}' onClick='return check_delete();'>Cancel</a></div>
                 </div>";
     } else {
       $output .= "<div class='mini_content'>
                   <div class='mini_content_1'>{$number}</div>
                   <div class='mini_content_2 mini_content_NULL'>- - - - - - - -</div>
-                  <div class='mini_content_3 mini_content_NULL'>募集中</div>
+                  <div class='mini_content_3 mini_content_NULL'>空席</div>
+                  <div class='mini_content_4'></div>
                 </div>";
     }
   }
@@ -117,6 +119,16 @@ if ($_SESSION['password'] == NULL) {
 
   </main>
 
+  <script>
+    function check_delete() {
+      var result = confirm('本当にキャンセルしますか？');
+      if (result) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  </script>
 </body>
 
 </html>

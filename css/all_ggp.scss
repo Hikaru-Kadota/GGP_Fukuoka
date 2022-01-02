@@ -96,11 +96,25 @@ main {
             border-right: solid 1px;
           }
           .mini_content_2 {
-            width: 40%;
+            width: 30%;
             border-right: solid 1px;
           }
           .mini_content_3 {
-            width: 50%;
+            width: 43%;
+            border-right: solid 1px;
+          }
+          .mini_content_4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 17%;
+            font-size: 1vw;
+            color: blue;
+            a {
+              padding: 2px 4px;
+              border: solid 1px blue;
+              border-radius: 3px;
+            }
           }
           .mini_content_NULL {
             color: red;

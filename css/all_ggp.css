@@ -153,12 +153,34 @@ main .season_list .contents .content_4 .mini_content .mini_content_1 {
 }
 
 main .season_list .contents .content_4 .mini_content .mini_content_2 {
-  width: 40%;
+  width: 30%;
   border-right: solid 1px;
 }
 
 main .season_list .contents .content_4 .mini_content .mini_content_3 {
-  width: 50%;
+  width: 43%;
+  border-right: solid 1px;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 17%;
+  font-size: 1vw;
+  color: blue;
+}
+
+main .season_list .contents .content_4 .mini_content .mini_content_4 a {
+  padding: 2px 4px;
+  border: solid 1px blue;
+  border-radius: 3px;
 }
 
 main .season_list .contents .content_4 .mini_content .mini_content_NULL {
