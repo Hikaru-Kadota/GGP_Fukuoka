@@ -77,8 +77,16 @@ main {
     }
   }
   .comment {
-    p{
-      font-size: 1.5vw;
+    .mini_comment {
+      display: flex;
+      align-items: center;
+      p{
+        font-size: 1.5vw;
+      }
+      h3 {
+        margin-left: 2vw;
+        color: red;
+      }
     }
     textarea {
       padding: 5px;
