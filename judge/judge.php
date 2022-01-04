@@ -265,12 +265,17 @@ if ($presenter == false) {
         alert("コメント以外は必須です");
         return false;
       } else {
-        return true;
+        var result = confirm('次に進みますか？\n(注) 戻ることはできません');
+        if (result) {
+          return true;
+        } else {
+          return false;
+        }
       }
     }
 
     function check_SKIP() {
-      var result = confirm('本当にスキップしますか？');
+      var result = confirm('本当にスキップしますか？\n(注) 戻ることはできません');
       if (result) {
         return true;
       } else {
