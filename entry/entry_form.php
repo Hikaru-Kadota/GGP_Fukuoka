@@ -71,8 +71,8 @@ if ($output == "") {
           <select name="class">
             <option value="F_LAB_06">F_LAB_06</option>
             <option value="F_DEV_09">F_DEV_09</option>
-            <option value="Y_DEV_01">Y_DEB_01</option>
-            <option value="S_DEV_03">S_DEB_03</option>
+            <option value="Y_DEV_01">Y_DEV_01</option>
+            <option value="S_DEV_03">S_DEV_03</option>
           </select>
         </div>
 
