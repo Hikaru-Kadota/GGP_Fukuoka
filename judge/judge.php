@@ -244,7 +244,7 @@ if ($presenter == false) {
       <div class="comment">
         <div class="mini_comment">
           <p>登壇者へコメント</p>
-          <h3>※絵文字は使用不可</h3>
+          <h3>絵文字も使えるよ💖</h3>
         </div>
         <textarea name="comment" id="" cols="100" rows="3" maxlength="500" placeholder="５００文字以内" onkeyup="ShowLength(value);"></textarea>
         <p id="inputlength"></p>
