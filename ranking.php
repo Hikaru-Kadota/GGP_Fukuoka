@@ -146,12 +146,14 @@ $stmt = $pdo->prepare($sql);
 $status = $stmt->execute();
 $result_counts = $stmt->fetchALL(PDO::FETCH_ASSOC);
 
+
 $result_count = [];
 for ($b = 0; $b < count($result_counts); $b++) {
   if (in_array($result_counts[$b]['season_id'], $result_count) == false) {
     array_push($result_count, $result_counts[$b]['season_id']);
   }
 }
+
 
 $season_output = "";
 for ($i = 0; $i < count($result_count); $i++) {
@@ -163,7 +165,7 @@ for ($i = 0; $i < count($result_count); $i++) {
   if ($season_result != NULL) {
     $sql = 'SELECT * FROM season_table WHERE season_id = :season_id';
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':season_id', $season_result[$i]['season_id'], PDO::PARAM_INT);
+    $stmt->bindValue(':season_id', $season_result[0]['season_id'], PDO::PARAM_INT);
     $status = $stmt->execute();
     $season = $stmt->fetch(PDO::FETCH_ASSOC);
     $season_name = $season['season_name'];
