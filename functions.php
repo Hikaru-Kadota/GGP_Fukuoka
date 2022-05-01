@@ -6,6 +6,7 @@ function connect_to_db()
   $user = 'b4451c9755181a';
   $pwd = '7f644c43';
 
+
   // $dbn = 'mysql:dbname=GGP;charset=utf8;port=3306;host=localhost';
   // $user = 'root';
   // $pwd = '';
