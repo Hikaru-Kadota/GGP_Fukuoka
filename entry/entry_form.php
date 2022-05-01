@@ -70,11 +70,15 @@ if ($output == "") {
           <p>所属クラス</p>
           <select name="class">
             <option value="F_LAB_06">F_LAB_06</option>
+            <option value="F_LAB_07">F_LAB_07</option>
             <option value="F_DEV_09">F_DEV_09</option>
             <option value="F_DEV_10">F_DEV_10</option>
+            <option value="F_DEV_11">F_DEV_11</option>
             <option value="Y_DEV_01">Y_DEV_01</option>
+            <option value="Y_DEV_02">Y_DEV_02</option>
             <option value="S_DEV_03">S_DEV_03</option>
             <option value="S_DEV_04">S_DEV_04</option>
+            <option value="T_LAB_12">T_LAB_12</option>
             <option value="T_DEV_21">T_DEV_21</option>
             <option value="T_DEV_22">T_DEV_22</option>
           </select>
