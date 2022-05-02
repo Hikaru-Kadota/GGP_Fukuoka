@@ -21,7 +21,7 @@ session_destroy();
 <body>
   <main>
     <div class="admin">
-      <a href="admin/admin_login.php">管理担当</a>
+      <a href="admin/admin_login.php">管理担当者</a>
     </div>
     <div class="title_wrapper">
       <img src="image/ggp_logo.png" alt="">
