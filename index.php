@@ -32,3 +32,4 @@ session_destroy();
 </body>
 
 </html>
+<!-- hoge -->
